@@ -96,8 +96,8 @@ contract Trustcoin is ERC20TokenInterface {
   // NOTE: this method is vulnerable and is placed here only to follow the ERC20 standard.
   // Before using, please take a look at the better compareAndApprove below.
   function approve(address _spender, uint256 _value) public returns (bool) {
-    allowed[msg.sender][_spender] = _value;
-    Approval(msg.sender, _spender, _value);
+    allowed[msg.sender][_spender] += _value;
+    Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
     return true;
   }
 
