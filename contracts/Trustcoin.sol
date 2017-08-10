@@ -125,7 +125,10 @@ contract Trustcoin is ERC20TokenInterface {
   // to a newer version of the contract. This field provides a kind of 'double-layer' of
   // authentication for any migration announcement, as it can only be set by WeTrust.
   /// @param _migrationInfo The information string to be stored on the contract
-  function setMigrationInfo(string _migrationInfo) onlyFromMigrationInfoSetter public {
+  function setMigrationInfo(string _migrationInfo)
+    onlyFromMigrationInfoSetter
+    public
+  {
     migrationInfo = _migrationInfo;
     MigrationInfoSet(_migrationInfo);
   }
@@ -134,7 +137,10 @@ contract Trustcoin is ERC20TokenInterface {
   // permission to a new account, e.g. because of change in personnel, a concern that account
   // may have been compromised etc.
   /// @param _newMigrationInfoSetter The address of the new Migration Info Setter
-  function changeMigrationInfoSetter(address _newMigrationInfoSetter) onlyFromMigrationInfoSetter public {
+  function changeMigrationInfoSetter(address _newMigrationInfoSetter)
+    onlyFromMigrationInfoSetter
+    public
+  {
     migrationInfoSetter = _newMigrationInfoSetter;
   }
 }
